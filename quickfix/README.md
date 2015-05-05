@@ -1,1 +1,1 @@
-See the [Wiki](https://github.com/FTSRG/viatra-cep-examples/wiki/CEP-driven-DSE-aided-Model-Synchronization) for details.
+See the [Wiki](https://github.com/FTSRG/viatra-cep-examples/wiki/Complex-event-driven-quick-fix-generation) for details.
