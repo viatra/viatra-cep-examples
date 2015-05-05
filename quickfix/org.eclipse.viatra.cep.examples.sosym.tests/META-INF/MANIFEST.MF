@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoSyM Example Tests
+Bundle-SymbolicName: org.eclipse.viatra.cep.examples.sosym.tests
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.eclipse.viatra.cep.examples.sosym.tests.internal.Activator
+Bundle-Vendor: VIATRA team
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel,
+ org.eclipse.incquery.examples.cps.deployment;bundle-version="0.1.0",
+ org.eclipse.incquery.examples.cps.model;bundle-version="0.1.0",
+ org.eclipse.incquery.examples.cps.traceability;bundle-version="0.1.0",
+ org.eclipse.viatra.cep.core;bundle-version="0.7.0",
+ org.eclipse.core.databinding.observable,
+ org.eclipse.incquery.validation.core,
+ org.eclipse.viatra.cep.examples.sosym.dse;bundle-version="0.0.1",
+ org.eclipse.viatra.cep.examples.sosym.queries,
+ org.eclipse.viatra.cep.examples.sosym.queries.validation;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

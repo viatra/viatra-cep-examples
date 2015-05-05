@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoSyM Example DSE Support
+Bundle-SymbolicName: org.eclipse.viatra.cep.examples.sosym.dse
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.eclipse.viatra.cep.examples.sosym.dse.internal.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.viatra.dse.api;bundle-version="0.7.0",
+ org.eclipse.viatra.dse.base;bundle-version="0.7.0",
+ org.eclipse.viatra.dse.designspace;bundle-version="0.7.0",
+ org.eclipse.incquery.examples.cps.model;bundle-version="0.1.0",
+ org.eclipse.incquery.examples.cps.deployment;bundle-version="0.1.0",
+ org.eclipse.viatra.cep.examples.sosym.queries;bundle-version="0.0.1",
+ org.apache.log4j;bundle-version="1.2.15"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: VIATRA team
+Export-Package: org.eclipse.viatra.cep.examples.sosym.dse

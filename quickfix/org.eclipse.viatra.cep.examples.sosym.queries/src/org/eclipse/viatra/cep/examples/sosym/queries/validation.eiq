@@ -1,0 +1,58 @@
+package org.eclipse.viatra.cep.examples.sosym.queries
+
+import "http://org.eclipse.incquery/model/cps"
+
+@Constraint(
+	key = {"host"},
+	message = "The available CPU ($host.availableCpu$) of $host.id$ is greater than the total ($host.totalCpu$)",
+	severity = "error"
+)
+pattern availableGreaterThanTotalCpu(host : HostInstance) {
+	HostInstance.availableCpu(host, aCpu);
+	HostInstance.totalCpu(host, tCpu);
+
+	check(aCpu > tCpu);
+}
+
+pattern availableGreaterThanTotalCpu2(host : HostInstance) {
+	find availableGreaterThanTotalCpu(host);
+}
+
+@Constraint(
+	key = {"host"},
+	message = "The available HDD ($host.availableHdd$) of $host.id$ is greater than the total ($host.totalHdd$)",
+	severity = "error"
+)
+pattern availableGreaterThanTotalHdd(host : HostInstance) {
+	HostInstance.availableHdd(host, aHdd);
+	HostInstance.totalHdd(host, tHdd);
+
+	check(aHdd > tHdd);
+}
+
+@Constraint(
+	key = {"host"},
+	message = "The available RAM ($host.availableRam$) of $host.id$ is greater than the total ($host.totalRam$)",
+	severity = "error"
+)
+pattern availableGreaterThanTotalRam(host : HostInstance) {
+	HostInstance.availableRam(host, aRam);
+	HostInstance.totalRam(host, tRam);
+
+	check(aRam > tRam);
+}
+
+@Constraint(
+	key = {"host"},
+	message = "The IP address $host.nodeIp$ of $host.id$ is not unique",
+	severity = "error"
+)
+pattern nodeIpIsNotUnique(host : HostInstance){
+	find nodeIpOfHost(host, ip);
+	find nodeIpOfHost(otherHost, ip);
+	host != otherHost;
+}
+
+private pattern nodeIpOfHost(host : HostInstance, ip){
+	HostInstance.nodeIp(host, ip);
+}

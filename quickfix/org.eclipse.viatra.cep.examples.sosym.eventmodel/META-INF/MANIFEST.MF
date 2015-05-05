@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoSyM Example Event Model
+Bundle-SymbolicName: org.eclipse.viatra.cep.examples.sosym.eventmodel;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: VIATRA team
+Export-Package: org.eclipse.viatra.cep.examples.sosym.eventmodel,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel.events,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel.jobs,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel.patterns.atomic,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel.patterns.complex,
+ org.eclipse.viatra.cep.examples.sosym.eventmodel.rules,
+ org.eclipse.viatra.cep.examples.sosym.interfaces
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.viatra.cep.core,
+ org.eclipse.viatra.dse.api;bundle-version="0.7.0",
+ org.eclipse.viatra.dse.base;bundle-version="0.7.0",
+ org.eclipse.viatra.cep.examples.sosym.dse;bundle-version="0.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j

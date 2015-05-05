@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SoSyM Example EMF-IncQuery Queries
+Bundle-SymbolicName: org.eclipse.viatra.cep.examples.sosym.queries;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: VIATRA Team
+Export-Package: org.eclipse.viatra.cep.examples.sosym.queries,
+ org.eclipse.viatra.cep.examples.sosym.queries.util
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.incquery.runtime,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.incquery.examples.cps.deployment;bundle-version="0.1.0",
+ org.eclipse.incquery.examples.cps.model;bundle-version="0.1.0",
+ org.eclipse.incquery.examples.cps.traceability;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j

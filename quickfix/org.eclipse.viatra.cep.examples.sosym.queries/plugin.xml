@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="org.eclipse.viatra.cep.examples.sosym.queries.Validation" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:org.eclipse.viatra.cep.examples.sosym.queries.Validation" id="org.eclipse.viatra.cep.examples.sosym.queries.Validation"/>
+  </extension>
+</plugin>

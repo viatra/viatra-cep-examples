@@ -1,0 +1,30 @@
+package org.eclipse.viatra.cep.examples.sosym.eventmodel
+
+AtomicEvent invalidModel(sourceElement : Object)
+AtomicEvent validModel(sourceElement : Object)
+
+ComplexEvent tolerationRange(src : Object){
+	definition: invalidModel(src){3}
+}
+
+Rule invalidModelEventObserved{
+	events: invalidModel
+	action{
+		org.eclipse.viatra.cep.examples.sosym.interfaces.LoggerWrapper.debug("CEP: 'invalidModel' event observed")
+	}
+}
+
+Rule validModelEventObserved{
+	events: validModel
+	action{
+		org.eclipse.viatra.cep.examples.sosym.interfaces.LoggerWrapper.debug("CEP: 'validModel' event observed")
+	}
+}
+
+Rule toleranceLimitReached{
+	events: tolerationRange
+	action{
+		org.eclipse.viatra.cep.examples.sosym.interfaces.LoggerWrapper.debug("CEP: Toleration range reached. Invoking DSE")
+		org.eclipse.viatra.cep.examples.sosym.interfaces.DSEInterface.instance.generateCandidates
+	}
+}
