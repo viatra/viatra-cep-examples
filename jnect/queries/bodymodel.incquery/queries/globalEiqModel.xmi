@@ -1,0 +1,1509 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:eMFPatternLanguage="http://www.eclipse.org/incquery/patternlanguage/emf/EMFPatternLanguage" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:patternLanguage="http://www.eclipse.org/incquery/patternlanguage/PatternLanguage" xmlns:types="http://www.eclipse.org/xtext/common/JavaVMTypes" xmlns:xbase="http://www.eclipse.org/xtext/xbase/Xbase">
+  <eMFPatternLanguage:PatternModel>
+    <patterns name="bodymodel.ymca.rightHandAboveHead" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/ymca/ymca.eiq">
+      <annotations name="QueryExplorer">
+        <parameters name="display">
+          <value xsi:type="patternLanguage:BoolValue" value="true"/>
+        </parameters>
+      </annotations>
+      <parameters name="B">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+        </type>
+      </parameters>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="H">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightHand"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/Head"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="H"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="Hy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:CheckConstraint">
+          <expression xsi:type="xbase:XBinaryOperation">
+            <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.FloatExtensions#org.eclipse.xtext.xbase.lib.FloatExtensions.operator_lessThan(float,float)"/>
+            <leftOperand xsi:type="xbase:XMemberFeatureCall">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+              <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XStringLiteral" value="HY"/>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/1"/>
+              </memberCallTarget>
+            </leftOperand>
+            <rightOperand xsi:type="xbase:XMemberFeatureCall">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+              <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHY"/>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/2"/>
+              </memberCallTarget>
+            </rightOperand>
+          </expression>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.ymca.stretchedRightArm" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/ymca/ymca.eiq">
+      <annotations name="QueryExplorer">
+        <parameters name="display">
+          <value xsi:type="patternLanguage:BoolValue" value="true"/>
+        </parameters>
+      </annotations>
+      <parameters name="B">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+        </type>
+      </parameters>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="RE">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightElbow"/>
+        </type>
+      </parameters>
+      <parameters name="RS">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightShoulder"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightHand"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightElbow"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/Head"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:CheckConstraint">
+          <expression xsi:type="xbase:XBlockExpression">
+            <expressions xsi:type="xbase:XVariableDeclaration" name="angleBetween" writeable="true">
+              <type xsi:type="types:JvmParameterizedTypeReference">
+                <type xsi:type="types:JvmPrimitiveType" href="java:/Primitives#float"/>
+              </type>
+              <right xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.angleBetween(java.util.Vector,java.util.Vector)"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.createVector(float,float,float,float,float,float)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/3"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/4"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/5"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/6"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/7"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/8"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                </memberCallArguments>
+                <memberCallArguments xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.createVector(float,float,float,float,float,float)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/9"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/10"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/11"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/12"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/13"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/14"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                </memberCallArguments>
+              </right>
+            </expressions>
+            <expressions xsi:type="xbase:XBinaryOperation">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions.operator_lessThan(double,float)"/>
+              <leftOperand xsi:type="xbase:XBinaryOperation">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions.operator_minus(double,float)"/>
+                <leftOperand xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                  <feature xsi:type="types:JvmField" href="java:/Objects/java.lang.Math#java.lang.Math.PI"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/java.lang.Math#java.lang.Math"/>
+                  </memberCallTarget>
+                </leftOperand>
+                <rightOperand xsi:type="xbase:XFeatureCall" feature="/0/@patterns.1/@bodies.0/@constraints.12/@expression/@expressions.0"/>
+              </leftOperand>
+              <rightOperand xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                <feature xsi:type="types:JvmField" href="java:/Objects/bodymodel.ymca.YMCAConstants#bodymodel.ymca.YMCAConstants.angleTolerance"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.YMCAConstants#bodymodel.ymca.YMCAConstants"/>
+                </memberCallTarget>
+              </rightOperand>
+            </expressions>
+          </expression>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.ymca.bentRightArm" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/ymca/ymca.eiq">
+      <annotations name="QueryExplorer">
+        <parameters name="display">
+          <value xsi:type="patternLanguage:BoolValue" value="true"/>
+        </parameters>
+      </annotations>
+      <parameters name="B">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+        </type>
+      </parameters>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="RE">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightElbow"/>
+        </type>
+      </parameters>
+      <parameters name="RS">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightShoulder"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightHand"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightElbow"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/Head"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RE"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="REZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/x"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSX"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSY"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//PositionedElement"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/z"/>
+              </type>
+            </tail>
+            <src var="RS"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RSZ"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:CheckConstraint">
+          <expression xsi:type="xbase:XBlockExpression">
+            <expressions xsi:type="xbase:XVariableDeclaration" name="angleBetween" writeable="true">
+              <type xsi:type="types:JvmParameterizedTypeReference">
+                <type xsi:type="types:JvmPrimitiveType" href="java:/Primitives#float"/>
+              </type>
+              <right xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.angleBetween(java.util.Vector,java.util.Vector)"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.createVector(float,float,float,float,float,float)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/15"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/16"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RHZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/17"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/18"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/19"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/20"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                </memberCallArguments>
+                <memberCallArguments xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths.createVector(float,float,float,float,float,float)"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.VectorMaths#bodymodel.ymca.VectorMaths"/>
+                  </memberCallTarget>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/21"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/22"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="RSZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/23"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REX"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/24"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REY"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/25"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                  <memberCallArguments xsi:type="xbase:XMemberFeatureCall">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                    <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+                      <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+                      <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                        <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                        <memberCallTarget xsi:type="xbase:XFeatureCall">
+                          <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                        </memberCallTarget>
+                        <memberCallArguments xsi:type="xbase:XStringLiteral" value="REZ"/>
+                      </memberCallTarget>
+                      <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/26"/>
+                    </memberCallTarget>
+                  </memberCallArguments>
+                </memberCallArguments>
+              </right>
+            </expressions>
+            <expressions xsi:type="xbase:XBinaryOperation">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions.operator_lessThan(double,float)"/>
+              <leftOperand xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/java.lang.Math#java.lang.Math.abs(double)"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/java.lang.Math#java.lang.Math"/>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XBinaryOperation">
+                  <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions.operator_minus(double,float)"/>
+                  <leftOperand xsi:type="xbase:XBinaryOperation">
+                    <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions.operator_divide(double,int)"/>
+                    <leftOperand xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                      <feature xsi:type="types:JvmField" href="java:/Objects/java.lang.Math#java.lang.Math.PI"/>
+                      <memberCallTarget xsi:type="xbase:XFeatureCall">
+                        <feature xsi:type="types:JvmGenericType" href="java:/Objects/java.lang.Math#java.lang.Math"/>
+                      </memberCallTarget>
+                    </leftOperand>
+                    <rightOperand xsi:type="xbase:XNumberLiteral" value="2"/>
+                  </leftOperand>
+                  <rightOperand xsi:type="xbase:XFeatureCall" feature="/0/@patterns.2/@bodies.0/@constraints.12/@expression/@expressions.0"/>
+                </memberCallArguments>
+              </leftOperand>
+              <rightOperand xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                <feature xsi:type="types:JvmField" href="java:/Objects/bodymodel.ymca.YMCAConstants#bodymodel.ymca.YMCAConstants.angleTolerance"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.ymca.YMCAConstants#bodymodel.ymca.YMCAConstants"/>
+                </memberCallTarget>
+              </rightOperand>
+            </expressions>
+          </expression>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.ymca.FS" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/ymca/ymca.eiq">
+      <parameters name="B">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+        </type>
+      </parameters>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="RE">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightElbow"/>
+        </type>
+      </parameters>
+      <parameters name="RS">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightShoulder"/>
+        </type>
+      </parameters>
+      <parameters name="H">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightHand"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightElbow"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightShoulder"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RS"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/Head"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PatternCompositionConstraint">
+          <call patternRef="/0/@patterns.1">
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="B"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RS"/>
+            </parameters>
+          </call>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PatternCompositionConstraint" negative="true">
+          <call patternRef="/0/@patterns.0">
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="B"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </parameters>
+          </call>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.ymca.FE" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/ymca/ymca.eiq">
+      <parameters name="B">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+        </type>
+      </parameters>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="RE">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightElbow"/>
+        </type>
+      </parameters>
+      <parameters name="RS">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightShoulder"/>
+        </type>
+      </parameters>
+      <parameters name="H">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightHand"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightElbow"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/RightShoulder"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RS"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Body"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EReference" href="http://org/jnect/bodymodel#//Body/Head"/>
+              </type>
+            </tail>
+            <src var="B"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PatternCompositionConstraint">
+          <call patternRef="/0/@patterns.2">
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="B"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RE"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RS"/>
+            </parameters>
+          </call>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PatternCompositionConstraint" negative="true">
+          <call patternRef="/0/@patterns.0">
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="B"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="RH"/>
+            </parameters>
+            <parameters xsi:type="patternLanguage:VariableValue">
+              <value var="H"/>
+            </parameters>
+          </call>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.RightHandAboveHead" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/bodymodel.eiq">
+      <annotations name="QueryExplorer">
+        <parameters name="display">
+          <value xsi:type="patternLanguage:BoolValue" value="true"/>
+        </parameters>
+      </annotations>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="H">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="H"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="Hy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:CheckConstraint">
+          <expression xsi:type="xbase:XBinaryOperation">
+            <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.ComparableExtensions#org.eclipse.xtext.xbase.lib.ComparableExtensions.operator_lessThan(java.lang.Comparable,C)"/>
+            <leftOperand xsi:type="xbase:XFeatureCall" feature="/27"/>
+            <rightOperand xsi:type="xbase:XFeatureCall" feature="/28"/>
+          </expression>
+        </constraints>
+      </bodies>
+    </patterns>
+    <patterns name="bodymodel.RightHandAboveHead_MovingAverage" fileName="platform:/resource/bodymodel.incquery/src/bodymodel/bodymodel.eiq">
+      <annotations name="QueryExplorer">
+        <parameters name="display">
+          <value xsi:type="patternLanguage:BoolValue" value="true"/>
+        </parameters>
+      </annotations>
+      <parameters name="RH">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+        </type>
+      </parameters>
+      <parameters name="H">
+        <type xsi:type="eMFPatternLanguage:ClassType">
+          <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+        </type>
+      </parameters>
+      <bodies>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//RightHand"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="RH"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="RHy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:PathExpressionConstraint">
+          <head>
+            <type xsi:type="eMFPatternLanguage:ClassType">
+              <classname xsi:type="ecore:EClass" href="http://org/jnect/bodymodel#//Head"/>
+            </type>
+            <tail>
+              <type xsi:type="eMFPatternLanguage:ReferenceType">
+                <refname xsi:type="ecore:EAttribute" href="http://org/jnect/bodymodel#//PositionedElement/y"/>
+              </type>
+            </tail>
+            <src var="H"/>
+            <dst xsi:type="patternLanguage:VariableValue">
+              <value var="Hy"/>
+            </dst>
+          </head>
+        </constraints>
+        <constraints xsi:type="patternLanguage:CheckConstraint">
+          <expression xsi:type="xbase:XBlockExpression">
+            <expressions xsi:type="xbase:XVariableDeclaration" name="rhy_mac" writeable="true">
+              <type xsi:type="types:JvmParameterizedTypeReference">
+                <type xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+              </type>
+              <right xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  </memberCallTarget>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XStringLiteral" value="RH_Y"/>
+              </right>
+            </expressions>
+            <expressions xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+              <memberCallTarget xsi:type="xbase:XFeatureCall" feature="/0/@patterns.6/@bodies.0/@constraints.2/@expression/@expressions.0"/>
+              <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/29"/>
+            </expressions>
+            <expressions xsi:type="xbase:XVariableDeclaration" name="hy_mac" writeable="true">
+              <type xsi:type="types:JvmParameterizedTypeReference">
+                <type xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+              </type>
+              <right xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true" explicitStatic="true">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getCalculator(java.lang.String)"/>
+                <memberCallTarget xsi:type="xbase:XMemberFeatureCall" explicitStatic="true">
+                  <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  <memberCallTarget xsi:type="xbase:XFeatureCall">
+                    <feature xsi:type="types:JvmGenericType" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator"/>
+                  </memberCallTarget>
+                </memberCallTarget>
+                <memberCallArguments xsi:type="xbase:XStringLiteral" value="H_Y"/>
+              </right>
+            </expressions>
+            <expressions xsi:type="xbase:XMemberFeatureCall" explicitOperationCall="true">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.addValue(float)"/>
+              <memberCallTarget xsi:type="xbase:XFeatureCall" feature="/0/@patterns.6/@bodies.0/@constraints.2/@expression/@expressions.2"/>
+              <memberCallArguments xsi:type="xbase:XFeatureCall" feature="/30"/>
+            </expressions>
+            <expressions xsi:type="xbase:XBinaryOperation">
+              <feature xsi:type="types:JvmOperation" href="java:/Objects/org.eclipse.xtext.xbase.lib.FloatExtensions#org.eclipse.xtext.xbase.lib.FloatExtensions.operator_lessThan(float,float)"/>
+              <leftOperand xsi:type="xbase:XMemberFeatureCall">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall" feature="/0/@patterns.6/@bodies.0/@constraints.2/@expression/@expressions.2"/>
+              </leftOperand>
+              <rightOperand xsi:type="xbase:XMemberFeatureCall">
+                <feature xsi:type="types:JvmOperation" href="java:/Objects/bodymodel.MovingAverageCalculator#bodymodel.MovingAverageCalculator.getMovingAvg()"/>
+                <memberCallTarget xsi:type="xbase:XFeatureCall" feature="/0/@patterns.6/@bodies.0/@constraints.2/@expression/@expressions.0"/>
+              </rightOperand>
+            </expressions>
+          </expression>
+        </constraints>
+      </bodies>
+    </patterns>
+    <importPackages>
+      <packageImport>
+        <ePackage href="http://org/jnect/bodymodel#/"/>
+      </packageImport>
+    </importPackages>
+  </eMFPatternLanguage:PatternModel>
+  <types:JvmFormalParameter name="Hy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RSZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REX">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REY">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="REZ">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="Hy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="RHy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+  <types:JvmFormalParameter name="Hy">
+    <parameterType xsi:type="types:JvmParameterizedTypeReference"/>
+  </types:JvmFormalParameter>
+</xmi:XMI>

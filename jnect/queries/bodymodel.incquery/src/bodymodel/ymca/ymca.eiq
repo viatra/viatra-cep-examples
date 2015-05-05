@@ -1,0 +1,144 @@
+package bodymodel.ymca
+
+import "http://org/jnect/bodymodel"
+
+import java bodymodel.MovingAverageCalculator;
+import java bodymodel.ymca.VectorMaths;
+import java bodymodel.ymca.YMCAConstants;
+
+
+/*
+ * This pattern is buggy! Depending on the relative position of (0,0,0) this may yield wrong results.
+ */
+@QueryExplorer(display = true)
+pattern rightHandAboveHead(B: Body, RH: RightHand, H: Head) {
+	Body.RightHand(B, RH);
+	Body.Head(B, H);
+	
+	RightHand.y(RH,RHy);
+	Head.y(H,Hy);
+	
+	check(
+		MovingAverageCalculator::getCalculator("HY").addValue(Hy).movingAvg < 
+		 MovingAverageCalculator::getCalculator("RHY").addValue(RHy).movingAvg
+	);
+}
+
+/**
+ * Right arm is stretched straight.
+ */
+@QueryExplorer(display = true)
+pattern stretchedRightArm(B: Body, RH: RightHand, RE: RightElbow, RS: RightShoulder) {
+	Body.RightHand(B, RH);
+	Body.RightElbow(B, RE);
+	Body.Head(B, H);
+	
+	// indicate coordinates to be used for check calculation
+	PositionedElement.x(RH,RHX);
+	PositionedElement.y(RH,RHY);
+	PositionedElement.z(RH,RHZ);
+	PositionedElement.x(RE,REX);
+	PositionedElement.y(RE,REY);
+	PositionedElement.z(RE,REZ);
+	PositionedElement.x(RS,RSX);
+	PositionedElement.y(RS,RSY);
+	PositionedElement.z(RS,RSZ);
+	// check that the angle between the lower arm (H-E)
+	// and upper arm (S-E) is around PI (180')
+	check({
+		// we need to "wire" attribute values into the check expression
+		var float angleBetween = VectorMaths::angleBetween(
+			VectorMaths::createVector(
+				MovingAverageCalculator::getCalculator("RHX").addValue(RHX).movingAvg, 
+				MovingAverageCalculator::getCalculator("RHY").addValue(RHY).movingAvg, 
+				MovingAverageCalculator::getCalculator("RHZ").addValue(RHZ).movingAvg, 
+				MovingAverageCalculator::getCalculator("REX").addValue(REX).movingAvg, 
+				MovingAverageCalculator::getCalculator("REY").addValue(REY).movingAvg, 
+				MovingAverageCalculator::getCalculator("REZ").addValue(REZ).movingAvg
+			),
+			VectorMaths::createVector(
+				MovingAverageCalculator::getCalculator("RSX").addValue(RSX).movingAvg, 
+				MovingAverageCalculator::getCalculator("RSY").addValue(RSY).movingAvg, 
+				MovingAverageCalculator::getCalculator("RSZ").addValue(RSZ).movingAvg, 
+				MovingAverageCalculator::getCalculator("REX").addValue(REX).movingAvg, 
+				MovingAverageCalculator::getCalculator("REY").addValue(REY).movingAvg, 
+				MovingAverageCalculator::getCalculator("REZ").addValue(REZ).movingAvg
+			)
+		)
+		// System::out.println(angleBetween)
+		(Math::PI - angleBetween) < YMCAConstants::angleTolerance
+	});
+}
+
+/**
+ * Right arm is bent 90'.
+ */
+@QueryExplorer(display = true)
+pattern bentRightArm(B: Body, RH: RightHand, RE:RightElbow, RS:RightShoulder) {
+	Body.RightHand(B, RH);
+	Body.RightElbow(B, RE);
+	Body.Head(B, H);
+	
+	// indicate coordinates to be used for check calculation
+	PositionedElement.x(RH,RHX);
+	PositionedElement.y(RH,RHY);
+	PositionedElement.z(RH,RHZ);
+	PositionedElement.x(RE,REX);
+	PositionedElement.y(RE,REY);
+	PositionedElement.z(RE,REZ);
+	PositionedElement.x(RS,RSX);
+	PositionedElement.y(RS,RSY);
+	PositionedElement.z(RS,RSZ);
+	// check that the angle between the lower arm (H-E)
+	// and upper arm (S-E) is around PI/2 (90')
+	check({
+		// we need to "wire" attribute values into the check expression
+		var float angleBetween = VectorMaths::angleBetween(
+			VectorMaths::createVector(
+				MovingAverageCalculator::getCalculator("RHX").addValue(RHX).movingAvg, 
+				MovingAverageCalculator::getCalculator("RHY").addValue(RHY).movingAvg, 
+				MovingAverageCalculator::getCalculator("RHZ").addValue(RHZ).movingAvg, 
+				MovingAverageCalculator::getCalculator("REX").addValue(REX).movingAvg, 
+				MovingAverageCalculator::getCalculator("REY").addValue(REY).movingAvg, 
+				MovingAverageCalculator::getCalculator("REZ").addValue(REZ).movingAvg
+			),
+			VectorMaths::createVector(
+				MovingAverageCalculator::getCalculator("RSX").addValue(RSX).movingAvg, 
+				MovingAverageCalculator::getCalculator("RSY").addValue(RSY).movingAvg, 
+				MovingAverageCalculator::getCalculator("RSZ").addValue(RSZ).movingAvg, 
+				MovingAverageCalculator::getCalculator("REX").addValue(REX).movingAvg, 
+				MovingAverageCalculator::getCalculator("REY").addValue(REY).movingAvg, 
+				MovingAverageCalculator::getCalculator("REZ").addValue(REZ).movingAvg
+			)
+		)
+		// System::out.println(angleBetween)
+		Math::abs(Math::PI/2 - angleBetween) < YMCAConstants::angleTolerance
+	});
+}
+
+/*
+ * Forward start position.
+ */
+pattern FS(B: Body, RH: RightHand, RE: RightElbow, RS: RightShoulder, H: Head) {
+	Body.RightHand(B, RH);
+	Body.RightElbow(B, RE);
+	Body.RightShoulder(B, RS);
+	Body.Head(B, H);
+	
+	find stretchedRightArm(B, RH, RE, RS);
+	neg find rightHandAboveHead(B, RH, H);
+}
+
+/*
+ * Forward end position.
+ */
+pattern FE(B:Body, RH: RightHand, RE: RightElbow, RS: RightShoulder, H: Head) {
+	Body.RightHand(B, RH);
+	Body.RightElbow(B, RE);
+	Body.RightShoulder(B, RS);
+	Body.Head(B, H);
+	
+	find bentRightArm(B, RH, RE, RS);
+	neg find rightHandAboveHead(B, RH, H);
+}
+ 

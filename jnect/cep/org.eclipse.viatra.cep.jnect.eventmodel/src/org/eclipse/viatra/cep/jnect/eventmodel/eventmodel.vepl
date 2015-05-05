@@ -1,0 +1,34 @@
+package org.eclipse.viatra.cep.jnect.eventmodel
+
+
+import org.jnect.bodymodel.*
+import-queries bodymodel.ymca.*
+
+QueryResultChangeEvent FEFound(B: Body){
+	query: FE(B, _RH, _RE, _RS, _H)
+	resultChangeType: NEW_MATCH_FOUND
+}
+
+QueryResultChangeEvent FELost(B: Body){
+	query: FE(B, _RH, _RE, _RS, _H)
+	resultChangeType: EXISTING_MATCH_LOST
+}
+
+QueryResultChangeEvent FSFound(B: Body){
+	query: FS(B, _RH, _RE, _RS, _H)
+	resultChangeType: NEW_MATCH_FOUND
+}
+
+QueryResultChangeEvent FSLost(B: Body){
+	query: FS(B, _RH, _RE, _RS, _H)
+	resultChangeType: EXISTING_MATCH_LOST
+}
+
+ComplexEvent FS_FE(B: Body){
+	definition: FSFound(B) -> FSLost(B) -> FEFound(B) -> FELost(B)
+}
+
+Rule FSFE_Rule{
+	events: FS_FE
+	actionHandler: org.eclipse.viatra.cep.jnect.eventmodel.handlers.ObservationStatHandler
+}
