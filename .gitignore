@@ -1,0 +1,16 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+plugin.xml_gen
+bin/
+target/
+tmp/
+.settings/
+MANIFEST.MF_gen
+.DS_Store*
+.metadata
+*._trace
