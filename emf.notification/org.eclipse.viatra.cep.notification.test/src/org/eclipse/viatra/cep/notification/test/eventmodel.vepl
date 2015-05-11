@@ -3,7 +3,7 @@ package org.eclipse.viatra.cep.notification.test
 import org.eclipse.viatra.cep.emf.notification.model.*
 
 ComplexEvent setTwice(feature : Object){
-	definition: SET(feature){2}
+	definition: SET(feature,_,_){2}
 }
 
 Rule r{

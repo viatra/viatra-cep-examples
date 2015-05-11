@@ -1,5 +1,6 @@
 package org.eclipse.viatra.cep.notification.test.cases;
 
+import org.apache.log4j.Level;
 import org.eclipse.viatra.cep.core.api.engine.CEPEngine;
 import org.eclipse.viatra.cep.core.metamodels.automaton.EventContext;
 import org.eclipse.viatra.cep.emf.notification.integration.NotificationAdapter;
@@ -21,6 +22,7 @@ public class BaseTests {
 		cepEngine = CEPEngine.newEngine(EventContext.CHRONICLE);
 		cepEngine.addRule(CepFactory.getInstance().createR());
 		notificationAdapter = new NotificationAdapter(car, cepEngine);
+		notificationAdapter.setDebugLevel(Level.DEBUG);
 	}
 
 	@After

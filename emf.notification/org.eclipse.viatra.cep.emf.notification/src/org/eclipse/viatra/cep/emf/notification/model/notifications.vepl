@@ -1,10 +1,10 @@
 package org.eclipse.viatra.cep.emf.notification.model
 
-AtomicEvent ADD(feature : Object)
-AtomicEvent ADD_MANY(feature : Object)
-AtomicEvent MOVE(feature : Object)
-AtomicEvent REMOVE(feature : Object)
-AtomicEvent REMOVE_MANY(feature : Object)
-AtomicEvent RESOLVE(feature : Object)
-AtomicEvent SET(feature : Object)
-AtomicEvent UNSET(feature : Object)
+AtomicEvent ADD(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent ADD_MANY(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent MOVE(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent REMOVE(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent REMOVE_MANY(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent RESOLVE(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent SET(feature: Object, oldValue: Object, newValue: Object)
+AtomicEvent UNSET(feature: Object, oldValue: Object, newValue: Object)
