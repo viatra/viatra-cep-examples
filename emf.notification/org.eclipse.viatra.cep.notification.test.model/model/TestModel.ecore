@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="carmodel" nsURI="http://example.com" nsPrefix="org.eclipse.viatra.cep.notification.test.model">
+  <eClassifiers xsi:type="ecore:EClass" name="Car">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wheels" upperBound="-1"
+        eType="#//Wheel" containment="true" eOpposite="#//Wheel/car"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="engine" eType="#//Engine"
+        containment="true" eOpposite="#//Engine/car"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wheel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="car" eType="#//Car" eOpposite="#//Car/wheels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Engine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="car" eType="#//Car" eOpposite="#//Car/engine"/>
+  </eClassifiers>
+</ecore:EPackage>

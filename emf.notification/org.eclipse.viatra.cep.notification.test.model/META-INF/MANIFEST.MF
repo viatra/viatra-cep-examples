@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.viatra.cep.notification.test.model;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.viatra.cep.notification.test.model.internal.Activator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.viatra.cep.notification.test.model.carmodel,
+ org.eclipse.viatra.cep.notification.test.model.carmodel.impl,
+ org.eclipse.viatra.cep.notification.test.model.carmodel.util
+Bundle-ActivationPolicy: lazy
