@@ -12,6 +12,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.junit,
  org.eclipse.viatra.cep.notification.test.model,
  org.eclipse.core.databinding.observable,
- org.eclipse.viatra.cep.emf.notification;
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.apache.log4j
+ org.eclipse.viatra.cep.emf.notification
