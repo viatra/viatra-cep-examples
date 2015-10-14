@@ -46,6 +46,7 @@ public class NotificationAdapter {
 				case Notification.ADD:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.ADD"));
 					ADD_Event addEvent = CepFactory.getInstance().createADD_Event();
+					addEvent.setNotifier(notification.getNotifier());
 					addEvent.setFeature(notification.getFeature());
 					addEvent.setOldValue(notification.getOldValue());
 					addEvent.setNewValue(notification.getNewValue());
@@ -54,6 +55,7 @@ public class NotificationAdapter {
 				case Notification.ADD_MANY:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.ADD_MANY"));
 					ADD_MANY_Event addManyEvent = CepFactory.getInstance().createADD_MANY_Event();
+					addManyEvent.setNotifier(notification.getNotifier());
 					addManyEvent.setFeature(notification.getFeature());
 					addManyEvent.setOldValue(notification.getOldValue());
 					addManyEvent.setNewValue(notification.getNewValue());
@@ -62,6 +64,7 @@ public class NotificationAdapter {
 				case Notification.MOVE:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.MOVE"));
 					MOVE_Event moveEvent = CepFactory.getInstance().createMOVE_Event();
+					moveEvent.setNotifier(notification.getNotifier());
 					moveEvent.setFeature(notification.getFeature());
 					moveEvent.setOldValue(notification.getOldValue());
 					moveEvent.setNewValue(notification.getNewValue());
@@ -70,6 +73,7 @@ public class NotificationAdapter {
 				case Notification.REMOVE:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.REMOVE"));
 					REMOVE_Event removeEvent = CepFactory.getInstance().createREMOVE_Event();
+					removeEvent.setNotifier(notification.getNotifier());
 					removeEvent.setFeature(notification.getFeature());
 					removeEvent.setOldValue(notification.getOldValue());
 					removeEvent.setNewValue(notification.getNewValue());
@@ -78,6 +82,7 @@ public class NotificationAdapter {
 				case Notification.REMOVE_MANY:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.REMOVE_MANY"));
 					REMOVE_MANY_Event removeManyEvent = CepFactory.getInstance().createREMOVE_MANY_Event();
+					removeManyEvent.setNotifier(notification.getNotifier());
 					removeManyEvent.setFeature(notification.getFeature());
 					removeManyEvent.setOldValue(notification.getOldValue());
 					removeManyEvent.setNewValue(notification.getNewValue());
@@ -86,6 +91,7 @@ public class NotificationAdapter {
 				case Notification.RESOLVE:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.RESOLVE"));
 					RESOLVE_Event resolveEvent = CepFactory.getInstance().createRESOLVE_Event();
+					resolveEvent.setNotifier(notification.getNotifier());
 					resolveEvent.setFeature(notification.getFeature());
 					resolveEvent.setOldValue(notification.getOldValue());
 					resolveEvent.setNewValue(notification.getNewValue());
@@ -94,6 +100,7 @@ public class NotificationAdapter {
 				case Notification.SET:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.SET"));
 					SET_Event setEvent = CepFactory.getInstance().createSET_Event();
+					setEvent.setNotifier(notification.getNotifier());
 					setEvent.setFeature(notification.getFeature());
 					setEvent.setOldValue(notification.getOldValue());
 					setEvent.setNewValue(notification.getNewValue());
@@ -102,6 +109,7 @@ public class NotificationAdapter {
 				case Notification.UNSET:
 					logger.debug(String.format(EVENT_OBSERVED_MSG, "Notification.UNSET"));
 					UNSET_Event unsetEvent = CepFactory.getInstance().createUNSET_Event();
+					unsetEvent.setNotifier(notification.getNotifier());
 					unsetEvent.setFeature(notification.getFeature());
 					unsetEvent.setOldValue(notification.getOldValue());
 					unsetEvent.setNewValue(notification.getNewValue());
