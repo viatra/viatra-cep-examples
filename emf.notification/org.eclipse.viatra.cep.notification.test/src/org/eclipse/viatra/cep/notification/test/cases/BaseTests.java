@@ -19,8 +19,7 @@ public class BaseTests {
 	@Before
 	public void setUp() throws Exception {
 		car = CarmodelFactory.eINSTANCE.createCar();
-		cepEngine = CEPEngine.newEngine(EventContext.CHRONICLE);
-		cepEngine.addRule(CepFactory.getInstance().createR());
+		cepEngine = CEPEngine.newEngine().eventContext(EventContext.CHRONICLE).rules(CepFactory.getInstance().allRules()).prepare();
 		notificationAdapter = new NotificationAdapter(car, cepEngine);
 		notificationAdapter.setDebugLevel(Level.DEBUG);
 	}

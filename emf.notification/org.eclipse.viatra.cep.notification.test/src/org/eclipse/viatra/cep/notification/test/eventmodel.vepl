@@ -2,13 +2,10 @@ package org.eclipse.viatra.cep.notification.test
 
 import org.eclipse.viatra.cep.emf.notification.model.*
 
-ComplexEvent setTwice(feature : Object){
-	definition: SET(feature,_,_){2}
+complexEvent setTwice(feature : Object){
+	as SET(_, feature, _, _){2}
 }
 
-Rule r{
-	events: setTwice
-	action{
-		System.out.println(String.format("The same feature has been set twice (%s)", activation.atom.observableEventPattern.id))
-	}
+rule r on setTwice{
+	System.out.println(String.format("The same feature has been set twice (%s)", ruleInstance.atom.observedEventPatternId))
 }
