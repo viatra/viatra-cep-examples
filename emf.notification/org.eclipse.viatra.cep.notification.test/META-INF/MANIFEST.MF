@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.eclipse.viatra.cep.notification.test
 Bundle-SymbolicName: org.eclipse.viatra.cep.notification.test;singleton:=true
-Bundle-Version: 0.0.1.qualifier
+Bundle-Version: 0.8.0.qualifier
 Export-Package: org.eclipse.viatra.cep.notification.test,
  org.eclipse.viatra.cep.notification.test.jobs,
  org.eclipse.viatra.cep.notification.test.patterns.complex,
@@ -10,8 +10,8 @@ Export-Package: org.eclipse.viatra.cep.notification.test,
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.viatra.cep.core,
  org.junit,
- org.eclipse.viatra.cep.notification.test.model;bundle-version="0.0.1",
+ org.eclipse.viatra.cep.notification.test.model,
  org.eclipse.core.databinding.observable,
- org.eclipse.viatra.cep.emf.notification;bundle-version="0.0.1"
+ org.eclipse.viatra.cep.emf.notification;
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j
