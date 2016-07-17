@@ -1,0 +1,235 @@
+package com.incquerylabs.iot.pincodedemo.viatracep.events
+
+import com.incquerylabs.iot.pincodedemo.commons.ui.*
+
+// A
+atomicEvent sensor_A_state_0
+
+atomicEvent sensor_A_state_1
+
+atomicEvent sensor_A_state_2
+
+atomicEvent sensor_A_state_3
+
+atomicEvent sensor_A_state_4
+
+atomicEvent sensor_A_state_5
+
+rule rule_A_0 on sensor_A_state_0 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 0);
+	System.out.println("Sensor A set to 0")
+}
+
+rule rule_A_1 on sensor_A_state_1 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 1);
+	System.out.println("Sensor A set to 1")
+}
+
+rule rule_A_2 on sensor_A_state_2 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 2);
+	System.out.println("Sensor A set to 2")
+}
+
+rule rule_A_3 on sensor_A_state_3 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 3);
+	System.out.println("Sensor A set to 3")
+}
+
+rule rule_A_4 on sensor_A_state_4 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 4);
+	System.out.println("Sensor A set to 4")
+}
+
+rule rule_A_5 on sensor_A_state_5 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("A", 5);
+	System.out.println("Sensor A set to 5")
+}
+
+// B
+atomicEvent sensor_B_state_0()
+
+atomicEvent sensor_B_state_1()
+
+atomicEvent sensor_B_state_2()
+
+atomicEvent sensor_B_state_3()
+
+atomicEvent sensor_B_state_4()
+
+atomicEvent sensor_B_state_5()
+
+rule rule_B_0 on sensor_B_state_0 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 0);
+	System.out.println("Sensor B set to 0")
+}
+
+rule rule_B_1 on sensor_B_state_1 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 1);
+	System.out.println("Sensor B set to 1")
+}
+
+rule rule_B_2 on sensor_B_state_2 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 2);
+	System.out.println("Sensor B set to 2")
+}
+
+rule rule_B_3 on sensor_B_state_3 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 3);
+	System.out.println("Sensor B set to 3")
+}
+
+rule rule_B_4 on sensor_B_state_4 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 4);
+	System.out.println("Sensor B set to 4")
+}
+
+rule rule_B_5 on sensor_B_state_5 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("B", 5);
+	System.out.println("Sensor B set to 5")
+}
+
+// C
+atomicEvent sensor_C_state_0()
+
+atomicEvent sensor_C_state_1()
+
+atomicEvent sensor_C_state_2()
+
+atomicEvent sensor_C_state_3()
+
+atomicEvent sensor_C_state_4()
+
+atomicEvent sensor_C_state_5()
+
+rule rule_C_0 on sensor_C_state_0 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 0);
+	System.out.println("Sensor C set to 0")
+}
+
+rule rule_C_1 on sensor_C_state_1 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 1);
+	System.out.println("Sensor C set to 1")
+}
+
+rule rule_C_2 on sensor_C_state_2 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 2);
+	System.out.println("Sensor C set to 2")
+}
+
+rule rule_C_3 on sensor_C_state_3 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 3);
+	System.out.println("Sensor C set to 3")
+}
+
+rule rule_C_4 on sensor_C_state_4 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 4);
+	System.out.println("Sensor C set to 4")
+}
+
+rule rule_C_5 on sensor_C_state_5 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("C", 5);
+	System.out.println("Sensor C set to 5")
+}
+
+// D
+atomicEvent sensor_D_state_0()
+
+atomicEvent sensor_D_state_1()
+
+atomicEvent sensor_D_state_2()
+
+atomicEvent sensor_D_state_3()
+
+atomicEvent sensor_D_state_4()
+
+atomicEvent sensor_D_state_5()
+
+rule rule_D_0 on sensor_D_state_0 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 0);
+	System.out.println("Sensor D set to 0")
+}
+
+rule rule_D_1 on sensor_D_state_1 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 1);
+	System.out.println("Sensor D set to 1")
+}
+
+rule rule_D_2 on sensor_D_state_2 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 2);
+	System.out.println("Sensor D set to 2")
+}
+
+rule rule_D_3 on sensor_D_state_3 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 3);
+	System.out.println("Sensor D set to 3")
+}
+
+rule rule_D_4 on sensor_D_state_4 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 4);
+	System.out.println("Sensor D set to 4")
+}
+
+rule rule_D_5 on sensor_D_state_5 {
+	VisualizerCommandSender.instance.sendLockPositionChangeMessage("D", 5);
+	System.out.println("Sensor D set to 5")
+}
+
+atomicEvent INIT_ATOM
+
+rule rule_INIT_ATOM on INIT_ATOM {
+	VisualizerCommandSender.getInstance().sendLockingStateChangeMessgae(LockingState.INIT)
+}
+
+complexEvent correctPASS() {
+	as sensor_A_state_1 -> sensor_B_state_2 -> sensor_C_state_3 -> sensor_D_state_4 // XXX: modify if needed
+}
+
+complexEvent anyState() {
+	as (sensor_A_state_0 OR sensor_A_state_1 OR sensor_A_state_2 OR sensor_A_state_3 OR sensor_A_state_4 OR sensor_A_state_5) OR 
+	   (sensor_B_state_0 OR sensor_B_state_1 OR sensor_B_state_2 OR sensor_B_state_3 OR sensor_B_state_4 OR sensor_B_state_5) OR
+	   (sensor_C_state_0 OR sensor_C_state_1 OR sensor_C_state_2 OR sensor_C_state_3 OR sensor_C_state_4 OR sensor_C_state_5) OR
+	   (sensor_D_state_0 OR sensor_D_state_1 OR sensor_D_state_2 OR sensor_D_state_3 OR sensor_D_state_4 OR sensor_D_state_5)
+}
+
+//complexEvent incorrectPASS() {
+//	as INIT_ATOM -> ((NOT sensor_A_state_1 -> NOT sensor_B_state_2 -> NOT sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//	
+//					// 1 - correct
+//					(sensor_A_state_1 -> NOT sensor_B_state_2 -> NOT sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> sensor_B_state_2 -> NOT sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> NOT sensor_B_state_2 -> sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> NOT sensor_B_state_2 -> NOT sensor_C_state_3 -> sensor_D_state_4) OR
+//					
+//					// 2 - correct
+//					(sensor_A_state_1 -> sensor_B_state_2 -> NOT sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(sensor_A_state_1 -> NOT sensor_B_state_2 -> sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(sensor_A_state_1 -> NOT sensor_B_state_2 -> NOT sensor_C_state_3 -> sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> sensor_B_state_2 -> sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> sensor_B_state_2 -> NOT sensor_C_state_3 -> sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> NOT sensor_B_state_2 -> sensor_C_state_3 -> sensor_D_state_4) OR
+//					
+//					// 3 - 3 correct
+//					(sensor_A_state_1 -> sensor_B_state_2 -> sensor_C_state_3 -> NOT sensor_D_state_4) OR
+//					(sensor_A_state_1 -> sensor_B_state_2 -> NOT sensor_C_state_3 -> sensor_D_state_4) OR
+//					(sensor_A_state_1 -> NOT sensor_B_state_2 -> sensor_C_state_3 -> sensor_D_state_4) OR
+//					(NOT sensor_A_state_1 -> sensor_B_state_2 -> sensor_C_state_3 -> sensor_D_state_4))
+//}
+
+complexEvent init() {
+	as anyState{5}
+}
+
+rule initRule on init() {
+	com.incquerylabs.iot.pincodedemo.viatracep.stream.ViatraCepEventStreamProvider.pushInitEvent
+	System.out.println("INITIALIZE")
+}
+
+rule unlockRule on correctPASS() {
+	VisualizerCommandSender.getInstance().sendLockingStateChangeMessgae(LockingState.CORRECT_PASS)
+	System.out.println("Correct PASS")
+}
+
+//rule lockRule on incorrectPASS {
+//	VisualizerCommandSender.getInstance().sendLockingStateChangeMessgae(VisualizerCommandSender.LockingState.INCORRECT_PASS)
+//	System.out.println("Incorrect PASS")
+//}

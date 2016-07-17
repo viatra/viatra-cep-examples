@@ -1,0 +1,47 @@
+package com.incquerylabs.iot.pincode
+
+import com.incquerylabs.iot.pincodedemo.commons.model.CodeEvent;
+import com.incquerylabs.iot.pincodedemo.commons.model.CodeSource;
+import com.incquerylabs.iot.pincodedemo.drools.stream.StreamEntryPointProvider.*
+import com.incquerylabs.iot.pincodedemo.commons.ui.VisualizerCommandSender
+import com.incquerylabs.iot.pincodedemo.commons.ui.LockingState
+
+//declare any global variables here
+declare CodeEvent
+	@role(event)
+end
+
+declare window CodeEvents
+	CodeEvent() over window:length( 4 ) from entry-point "CodeStream"
+end
+
+rule "Code event arrived!"
+
+    when
+    	$sensor : CodeEvent( ) from window CodeEvents
+    then
+    	System.out.println("Sensor event: " + $sensor);
+		VisualizerCommandSender.getInstance().sendLockPositionChangeMessage($sensor.getSource().name(), $sensor.getValue());
+end
+
+rule "Correct code!"
+	when
+		$A : CodeEvent( source == CodeSource.A && value == 1 ) from window CodeEvents
+		$B : CodeEvent( source == CodeSource.B && value == 2, this after $A ) from window CodeEvents
+		$C : CodeEvent( source == CodeSource.C && value == 3, this after $A, this after $B ) from window CodeEvents
+		$D : CodeEvent( source == CodeSource.D && value == 4, this after $A, this after $B, this after $C ) from window CodeEvents
+	then
+		System.out.println("Correct event!");
+		VisualizerCommandSender.getInstance().sendLockingStateChangeMessgae(LockingState.CORRECT_PASS);
+end
+
+rule "Incorrect code!"
+	when
+		$A : CodeEvent( source != CodeSource.A || value != 1 ) from window CodeEvents
+		$B : CodeEvent( source != CodeSource.B || value != 2, this after $A ) from window CodeEvents
+		$C : CodeEvent( source != CodeSource.C || value != 3, this after $A, this after $B ) from window CodeEvents
+		$D : CodeEvent( source != CodeSource.D || value != 4, this after $A, this after $B, this after $C ) from window CodeEvents
+	then
+		System.out.println("Incorrect event!");
+		VisualizerCommandSender.getInstance().sendLockingStateChangeMessgae(LockingState.INCORRECT_PASS);
+end
