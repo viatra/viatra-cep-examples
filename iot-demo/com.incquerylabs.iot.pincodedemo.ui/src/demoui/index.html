@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CEP DEMO</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+			}
+
+			.center {
+				margin: auto;
+				width: 60%;
+				padding: 10px;
+				text-align: center;
+			}
+
+			.main-table{
+
+			}
+
+
+			table {
+				border-collapse: collapse;
+			}
+
+			.locked {
+				background-color: #FF9682;
+			}
+
+			.unlocked {
+				background-color: #A5E826;
+			}
+
+			table, th, td {
+				border: 3px solid #73AD21;
+			}
+
+			th {
+				font-size: 26px;
+			}
+
+			/* PAGE CENTERING */
+			#page-box {
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+
+			/* LOCKS*/
+			.cell {
+				text-align: center;
+			}
+
+			.lock-cell {
+				height: 250px;
+				width: 200px;
+			}
+
+			.lock-normal {
+				width: 150px;
+				height: 200px;
+				line-height: 180px;
+			}
+
+			.lock-standing {
+				width: 150px;
+				height: 50px;
+				line-height: 30px;
+			}
+
+			.lock-lateral {
+				width: 50px;
+				height: 200px;
+				line-height: 180px;
+			}
+
+			.lock-base-style {
+				margin: auto;
+				border: 2px solid #000000;
+				background-color: #c0c0c0;
+				color: #ffffff;
+				font-size: 55px;
+				border-radius: 10px;
+				white-space: nowrap;
+			}
+
+
+			/* LED */
+			.led {
+				width:10px;
+				height:10px;
+				background-color: red;
+				border-radius: 10px;
+				position: relative;
+				left: 120px;
+				top: 15px;
+			}
+
+			.off {
+				visibility: hidden;
+			}
+
+			/* LOCKING STATE */
+			#lock-state-p {
+				font-size: 36px;
+				font-family: "Courier New";
+				font-weight: bold;
+			}
+
+			@keyframes flash {
+				from {background-color: red;}
+				to {background-color: white;}
+			}
+
+			.flashing {
+				animation-name: flash;
+				animation-duration: 0.8s;
+				animation-delay: 0.5s;
+				animation-iteration-count: 3;
+			}
+
+			.arrow-row td {
+				background: white !important;
+				border: white !important;
+			}
+
+			.arrow-active {
+				background-image: url(arrow.png);
+				background-repeat: no-repeat;
+				height: 98px;
+				background-position: center;
+			}
+
+		</style>
+
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="paho-mqtt-ws.js"></script>
+	</head>
+	<body>
+
+
+		<div id="page-box">
+			<p id="lock-state-p" class="center">
+				State: <span id="lock-state">LOCKED</span>
+			</p>
+			<table id="lock-table" class="center main-table locked">
+				<tr>
+					<th class="cell" id="lock-header-1">1.</th>
+					<th class="cell" id="lock-header-2">2.</th>
+					<th class="cell" id="lock-header-3">3.</th>
+					<th class="cell" id="lock-header-4">4.</th>
+				</tr>
+				<tr>
+					<td class="cell lock-cell">
+						<div id="lock-1" class="lock-base-style lock-normal"><div class="led"></div><span>0</span></div>
+					</td>
+					<td class="cell lock-cell">
+						<div id="lock-2" class="lock-base-style lock-normal"><div class="led"></div><span>0</span></div>
+					</td>
+					<td class="cell lock-cell">
+						<div id="lock-3" class="lock-base-style lock-normal"><div class="led"></div><span>0</span></div>
+					</td>
+					<td class="cell lock-cell">
+						<div id="lock-4" class="lock-base-style lock-normal"><div class="led"></div><span>0</span></div>
+					</td>
+				</tr>
+				<tr class="arrow-row">
+					<td>
+						<div id="lock-arrow-1"></div>
+					</td>
+					<td>
+						<div id="lock-arrow-2"></div>
+					</td>
+					<td>
+						<div id="lock-arrow-3"></div>
+					</td>
+					<td>
+						<div id="lock-arrow-4"></div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="demo.js"></script>
+
+		<script>
+			$( document ).ready(function() {
+				console.log("Ready");
+				var canvas = document.getElementById("main-canvas");
+				var cep = new CepLock(canvas);
+				cep.init();
+			});
+		</script>
+
+	</body>
+</html>
