@@ -1,0 +1,1 @@
+= Compare Viatra CEP with other complex event processing frameworks via a simple IoT demo
