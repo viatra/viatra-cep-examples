@@ -1,0 +1,17 @@
+package vepl
+
+atomicEvent NPE
+
+atomicEvent CCE
+
+rule whereIsMyNPE on NPE {
+	System.out.println("Do something before NPE")
+	exception.ExceptionService.throwNullPointerException
+	System.out.println("Do something after NPE")
+}
+
+rule whereIsMyCCE on CCE {
+	System.out.println("Do something before CCE")
+	exception.ExceptionService.throwsClassCastException
+	System.out.println("Do something after CCE")
+}

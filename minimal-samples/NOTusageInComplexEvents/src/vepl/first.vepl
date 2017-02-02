@@ -1,0 +1,22 @@
+package vepl
+
+atomicEvent A
+
+atomicEvent B
+
+complexEvent A_and_B() {
+	as (A AND B)
+}
+
+complexEvent notA_and_B() {
+	as (NOT A_and_B)[10]
+}
+
+rule rule1 on A_and_B {
+	System.out.println("A AND B fired!")
+}
+
+rule rule2 on notA_and_B {
+	System.out.println("NOT (A AND B) in 10ms!")
+	
+}

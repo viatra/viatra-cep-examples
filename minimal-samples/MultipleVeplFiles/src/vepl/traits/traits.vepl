@@ -1,0 +1,10 @@
+package vepl.traits
+
+trait Timestamp {
+	t : long
+}
+
+trait Position {
+	x : double,
+	y : double
+}

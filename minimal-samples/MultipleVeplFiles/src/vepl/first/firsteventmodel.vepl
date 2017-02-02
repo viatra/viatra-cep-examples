@@ -1,0 +1,9 @@
+package vepl.first
+
+import vepl.traits.*
+
+atomicEvent A1 with Timestamp, Position
+
+atomicEvent B1 with Timestamp, Position
+
+atomicEvent C1 with Timestamp, Position

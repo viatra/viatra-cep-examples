@@ -1,0 +1,19 @@
+package vepl
+
+trait Side {
+	right : Boolean
+}
+
+atomicEvent FIRST with Side
+
+atomicEvent SECOND with Side
+
+
+complexEvent SIDE_TEST() {
+	as FIRST(s) -> SECOND(s)
+}
+
+rule sideTestRule on SIDE_TEST {
+	System.out.println("SIDE TEST OK!")
+}
+

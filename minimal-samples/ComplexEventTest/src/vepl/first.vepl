@@ -1,0 +1,17 @@
+package vepl
+
+atomicEvent A
+
+atomicEvent B 
+
+atomicEvent C
+
+atomicEvent D
+
+complexEvent COMPLEX_TEST() {
+	as A AND B AND (D OR C)
+}
+
+rule ruleComplexTest on COMPLEX_TEST {
+	System.out.println("COMPLEX TEST OK!")
+}
