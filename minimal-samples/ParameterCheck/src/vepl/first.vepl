@@ -8,10 +8,17 @@ atomicEvent FIRST with Side
 
 atomicEvent SECOND with Side
 
+atomicEvent THIRD (foo: Integer) with Side
+
 
 complexEvent SIDE_TEST(s: Boolean) {
 	as FIRST(s) -> SECOND(s)
 }
+
+complexEvent TRICKY_TEST(s: Boolean, foo: Integer) {
+	as FIRST(s) -> THIRD(foo, s)
+}
+
 
 rule sideTestRule on SIDE_TEST {
 	System.out.println("SIDE TEST OK!")
@@ -26,4 +33,18 @@ rule SecondRule on SECOND {
 	val bindings = ruleInstance.atom.parameterTable.parameterBindings
 	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
 }
+
+rule ThirdRule on THIRD {
+	System.out.println("ThirdRule fires for THIRD opaque Event")
 	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
+}
+
+rule TrickyRule on TRICKY_TEST {
+	System.out.println("TrickyRule fires for TRICKY_TEST complex Event")
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
+}
+		
