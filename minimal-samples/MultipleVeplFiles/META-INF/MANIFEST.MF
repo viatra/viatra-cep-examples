@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SeparatedTraitDefinitions
 Bundle-SymbolicName: MultipleVeplFiles;singleton:=true
 Bundle-Version: 0.0.1.qualifier
-Export-Package: vepl.first.events,
+Export-Package: vepl.first,
+ vepl.first.events,
  vepl.first.patterns.atomic,
- vepl.second,
  vepl.second.events,
  vepl.second.patterns.atomic
 Require-Bundle: org.eclipse.emf.ecore,

@@ -1,0 +1,9 @@
+package com.incquerylabs.viatra.cep.example.query_events.queries
+
+import "http://www.eclipse.org/emf/2002/Ecore"
+
+pattern hasContainer(contained: EClass, container: EClass) = {
+	EClass.eStructuralFeatures(container, ref);
+	EReference.containment(ref, true);
+	EReference.eType(ref, contained);
+}

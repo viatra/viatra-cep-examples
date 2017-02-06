@@ -9,11 +9,11 @@ atomicEvent FIRST with Side
 atomicEvent SECOND with Side
 
 
-complexEvent SIDE_TEST() {
+complexEvent SIDE_TEST(s: Boolean) {
 	as FIRST(s) -> SECOND(s)
 }
 
 rule sideTestRule on SIDE_TEST {
 	System.out.println("SIDE TEST OK!")
 }
-
+	

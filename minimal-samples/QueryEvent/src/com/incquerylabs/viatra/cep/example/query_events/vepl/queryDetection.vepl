@@ -1,0 +1,36 @@
+package com.incquerylabs.viatra.cep.example.query_events.vepl
+
+
+import org.junit.*
+import org.eclipse.emf.ecore.*
+import test.*
+import-queries com.incquerylabs.viatra.cep.example.query_events.queries.*
+
+
+queryEvent addContainer(contained:EObject, container:EObject) 
+	as hasContainer(contained, container) found
+
+complexEvent addContainer2(contained:EObject, container1:EObject, container2:EObject) {
+	as (addContainer(contained, container1) -> addContainer(contained, container2))
+}
+
+
+rule contRule on addContainer {
+	System.out.println("contRule fires for addContainer queryEvent")
+	CEPQueryEventTest.firingsOfEvent1++
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println(symbolicName + "\t= " + value)]
+	Assert.assertEquals(2, bindings.size)
+	bindings.forEach[Assert.assertTrue(value instanceof EObject)]
+}
+
+rule cont2Rule on addContainer2 {
+	System.out.println("cont2Rule fires for addContainer2 complex event")
+	CEPQueryEventTest.firingsOfEvent2++
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println(symbolicName + "\t= " + value)]
+	Assert.assertEquals(3, bindings.size)
+	bindings.forEach[Assert.assertTrue(value instanceof EObject)]
+}
