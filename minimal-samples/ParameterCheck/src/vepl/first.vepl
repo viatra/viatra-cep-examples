@@ -15,5 +15,15 @@ complexEvent SIDE_TEST(s: Boolean) {
 
 rule sideTestRule on SIDE_TEST {
 	System.out.println("SIDE TEST OK!")
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
+}
+
+rule SecondRule on SECOND {
+	System.out.println("SecondRule fires for SECOND opaque Event")
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
 }
 	

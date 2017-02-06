@@ -20,7 +20,7 @@ rule contRule on addContainer {
 	CEPQueryEventTest.firingsOfEvent1++
 	
 	val bindings = ruleInstance.atom.parameterTable.parameterBindings
-	bindings.forEach[System.out.println(symbolicName + "\t= " + value)]
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
 	Assert.assertEquals(2, bindings.size)
 	bindings.forEach[Assert.assertTrue(value instanceof EObject)]
 }
@@ -30,7 +30,7 @@ rule cont2Rule on addContainer2 {
 	CEPQueryEventTest.firingsOfEvent2++
 	
 	val bindings = ruleInstance.atom.parameterTable.parameterBindings
-	bindings.forEach[System.out.println(symbolicName + "\t= " + value)]
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
 	Assert.assertEquals(3, bindings.size)
 	bindings.forEach[Assert.assertTrue(value instanceof EObject)]
 }
