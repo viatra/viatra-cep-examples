@@ -16,9 +16,12 @@ complexEvent SIDE_TEST(s: Boolean) {
 }
 
 complexEvent TRICKY_TEST(s: Boolean, foo: Integer) {
-	as FIRST(s) -> THIRD(foo, s)
+	as SECOND(s) -> THIRD(foo, s)
 }
 
+complexEvent HIGHER_ORDER_TEST(side: Boolean, bar: Integer) {
+	as FIRST(side) -> TRICKY_TEST(side, bar)
+}
 
 rule sideTestRule on SIDE_TEST {
 	System.out.println("SIDE TEST OK!")
@@ -43,6 +46,13 @@ rule ThirdRule on THIRD {
 
 rule TrickyRule on TRICKY_TEST {
 	System.out.println("TrickyRule fires for TRICKY_TEST complex Event")
+	
+	val bindings = ruleInstance.atom.parameterTable.parameterBindings
+	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
+}
+
+rule HigherOrderPatternRule on HIGHER_ORDER_TEST {
+	System.out.println("HigherOrderPatternRule fires for HIGHER_ORDER_TEST complex Event")
 	
 	val bindings = ruleInstance.atom.parameterTable.parameterBindings
 	bindings.forEach[System.out.println('\t' + symbolicName + "\t= " + value)]
