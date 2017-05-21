@@ -1,0 +1,128 @@
+package com.rh12.tbcep.vepl
+
+import model.*
+import-queries com.rh12.tbcep.queries.*
+import com.rh12.tbcep.*
+
+/*** SENSOR UPDATE EVENT ***/
+
+// sensor update
+atomicEvent sensorDidUpdate
+
+rule sensorDidUpdateRule on sensorDidUpdate {
+	CLog.print("SENSOR DID UPDATE!  ", CLog.UPDATE)
+}
+
+
+/*** JUMP EVENTS ***/
+
+// atomic events
+queryEvent inA() as jumpA found
+queryEvent outA() as jumpA lost
+queryEvent inB() as jumpB found
+queryEvent outB() as jumpB lost
+queryEvent inC() as jumpC found
+queryEvent outC() as jumpC lost
+queryEvent inD() as jumpD found
+queryEvent outD() as jumpD lost
+queryEvent inE() as jumpE found
+queryEvent outE() as jumpE lost
+queryEvent inF() as jumpF found
+queryEvent outF() as jumpF lost
+queryEvent inH() as jumpH found
+queryEvent outH() as jumpH lost
+
+// atomic event rules
+rule inARule on inA   { CLog.print("(A) IN        ", CLog.ATOMIC_IN) }
+rule outARule on outA {	CLog.print("(A) OUT       ", CLog.ATOMIC_OUT) }
+rule inBRule on inB   { CLog.print("(B) IN        ", CLog.ATOMIC_IN) }
+rule outBRule on outB {	CLog.print("(B) OUT       ", CLog.ATOMIC_OUT) }
+rule inCRule on inC   { CLog.print("(C) IN        ", CLog.ATOMIC_IN) }
+rule outCRule on outC {	CLog.print("(C) OUT       ", CLog.ATOMIC_OUT) }
+rule inDRule on inD   { CLog.print("(D) IN        ", CLog.ATOMIC_IN) }
+rule outDRule on outD {	CLog.print("(D) OUT       ", CLog.ATOMIC_OUT) }
+rule inERule on inE   { CLog.print("(E) IN        ", CLog.ATOMIC_IN) }
+rule outERule on outE {	CLog.print("(E) OUT       ", CLog.ATOMIC_OUT) }
+rule inFRule on inF   { CLog.print("(F) IN        ", CLog.ATOMIC_IN) }
+rule outFRule on outF {	CLog.print("(F) OUT       ", CLog.ATOMIC_OUT) }
+rule inHRule on inH   { CLog.print("(H) IN        ", CLog.ATOMIC_IN) }
+rule outHRule on outH {	CLog.print("(H) OUT       ", CLog.ATOMIC_OUT) }
+
+rule inARuleA on inA  { CLog.print("(A       )    ", CLog.ATOMIC) }
+rule outARuleA on outA{ CLog.print("(A-      )    ", CLog.ATOMIC) }
+rule inBRuleA on inB  { CLog.print("( B      )    ", CLog.ATOMIC) }
+rule inCRuleA on inC  { CLog.print("(  C     )    ", CLog.ATOMIC) }
+rule inDRuleA on inD  { CLog.print("(   D    )    ", CLog.ATOMIC) }
+rule inERuleA on inE  { CLog.print("(    E   )    ", CLog.ATOMIC) }
+rule inFRuleA on inF  { CLog.print("(     F  )    ", CLog.ATOMIC) }
+rule inHRuleA on inH  { CLog.print("(       H)    ", CLog.ATOMIC) }
+
+
+// copmlex events
+complexEvent squat()  {
+	as (outA -> inB -> inC)[300]
+}
+complexEvent takeOff()  {
+	as (squat -> inD -> inE)[500]
+}
+complexEvent inAir()  {
+	as (takeOff -> inF)[1000]
+}
+complexEvent land()  {
+	as (inAir -> inH)[1200]
+}
+complexEvent jump()  {
+	as (land -> inA -> outA -> inA)[2000]
+}
+
+// complex event rules
+rule squatRule on squat {
+	CLog.print("  SQUAT       ", CLog.NAMED)
+}
+rule takeOffRule on takeOff {
+	CLog.print("  TAKE OFF    ", CLog.NAMED)
+}
+rule inAirRule on inAir {
+	CLog.print("  IN AIR      ", CLog.NAMED)
+}
+rule landRule on land {
+	CLog.print("  LAND        ", CLog.NAMED)
+}
+rule jumpRule on jump {
+	CLog.print("! JUMP    !   ", CLog.JUMP)
+}
+
+
+/*** SIMPLE TEST EVENTS ***/
+
+queryEvent zEntersPlus() as sensorZPlus found
+queryEvent zEntersMinus() as sensorZMinus found
+queryEvent zLeavesPlus() as sensorZPlus lost
+queryEvent zLeavesMinus() as sensorZMinus lost
+
+complexEvent upDownEvent() {
+	as (zEntersPlus -> zEntersMinus)[500]
+}
+complexEvent downUpEvent() {
+	as (zEntersMinus -> zEntersPlus)[500]
+}
+
+rule zPlusEnterRule on zEntersPlus {
+	CLog.print("zPlusEnter    ", CLog.SIMPLE_TEST)
+}
+rule zMinusEnterRule on zEntersMinus {
+	CLog.print("zMinusEnter   ", CLog.SIMPLE_TEST)
+}
+rule zPlusLeaveRule on zLeavesPlus {
+	CLog.print("zPlusLeave    ", CLog.SIMPLE_TEST)
+}
+rule zMinusLeaveRule on zLeavesMinus {
+	CLog.print("zMinusLeave   ", CLog.SIMPLE_TEST)
+}
+
+rule upDownRule on upDownEvent {
+	CLog.print("---UP down    ", CLog.SIMPLE_TEST)
+}
+rule downUpRule on downUpEvent {
+	CLog.print("---down UP    ", CLog.SIMPLE_TEST)
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?eclipse version="3.0"?><!--
+--><plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated model -->
+    <package class="model.ModelPackage" genModel="model/model.genmodel" uri="com.rh12.tbcep.model"/>
+  </extension>
+  <extension id="com.rh12.tbcep.queries.Queries" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:com.rh12.tbcep.queries.Queries" id="com.rh12.tbcep.queries.Queries"/>
+  </extension>
+</plugin>

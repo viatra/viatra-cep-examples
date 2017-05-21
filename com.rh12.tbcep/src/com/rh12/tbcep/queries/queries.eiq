@@ -1,0 +1,58 @@
+package com.rh12.tbcep.queries
+
+import "com.rh12.tbcep.model"
+
+
+// orientacio:
+//	- iPhone vizszintesen
+//  - Z tengely, +: lefele gyorsulas
+
+
+/*** JUMP ***/
+
+pattern jumpA(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z > -0.35 && z < 0.35);
+}
+
+pattern jumpB(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z < -0.6);
+}
+
+pattern jumpC(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z > 0.0);
+}
+
+pattern jumpD(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z > 1.5);
+}
+
+pattern jumpE(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z < 0.0);
+}
+
+pattern jumpF(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z < -1.0);
+}
+
+pattern jumpH(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z > 1.0);
+}
+
+
+/*** SIMPLE TESTS ***/
+
+pattern sensorZPlus(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z > 1);
+}
+pattern sensorZMinus(sensor : Sensor) {
+	Sensor.values.z(sensor, z);
+	check(z < -1.5);
+}
